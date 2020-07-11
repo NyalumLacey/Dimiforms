@@ -1,0 +1,34 @@
+#bg {
+    background: url("../img/BG-1.jpg") center        center no-repeat;
+	width: 130%;
+	height: 130%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+	overflow: hidden;
+	position: absolute;
+	filter: blur(3px);
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.jumbotron-fluid{
+    position: relative;
+    height: 40vh;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    margin: 10px 10px 10px 10px;
+}
+
+.jumbotron-fluid .container-fluid{
+    position: relative;
+    z-index: 2;
+    background-color: white;
+    border-radius: 25px 25px 25px 25px;
+    -moz-border-radius: 25px 25px 25px 25px;
+    -webkit-border-radius: 25px 25px 25px 25px;
+    border: 0px solid #ffffff;
+}

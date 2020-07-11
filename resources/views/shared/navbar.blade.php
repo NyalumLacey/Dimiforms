@@ -8,7 +8,9 @@
 </hr>
   <!-- Breadcrumb-->
   <div class="breadcrumb-dn mr-auto px-4">
+    <a href="/">
     <strong id="nav-title">Dimiforms</strong>
+    </a>
   </div>
     <ul class="nav navbar-nav nav-flex-icons ml-auto">
       <li class="nav-item dropdown">
