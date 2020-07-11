@@ -2,30 +2,25 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 
-class userControllers extends Controller
+class UserController extends Controller
 {
-    public function home()
-    {
+    public function DisplayDashboard(){
         return view('dashboard');
     }
 
-    public function displayFormularios()
-    {
+    public function displayFormularios(){
         return view('formularios');
     }
 
-    public function displayEstadisticas()
-    {
+    public function displayEstadisticas(){
         return view('estadisticas');
     }
 
-    public function displayAbout()
-    {
+    public function displayAbout(){
         return view('about');
     }
 
+    
 }
-

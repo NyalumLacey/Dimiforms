@@ -21,13 +21,13 @@ Route::get('saludame/{nombre?}', function ($nombre = "invitado") {
 
 })->name('saludos');
 
-Route::get('/', 'userControllers@home');
+Route::get('/', 'UserController@DisplayDashboard');
 
-Route::get('/formularios', 'userControllers@displayFormularios');
+Route::get('/formularios', 'UserController@displayFormularios');
 
-Route::get('/estadisticas', 'userControllers@displayEstadisticas');
+Route::get('/estadisticas', 'UserController@displayEstadisticas');
 
-Route::view('/about', 'about') ->name('about');
+Route::get('/about', 'UserController@displayAbout');
 
 Route::get('cuenta', function(){
   $Usuario = new Usuario();
