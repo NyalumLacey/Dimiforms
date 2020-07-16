@@ -14,7 +14,11 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //
+        // get all the nerds
+        $usuarios = Usuario::all();
+
+        // load the view and pass the nerds
+        return view('usuarios.index', compact('usuarios', $usuarios));
     }
 
     /**
@@ -24,7 +28,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('usuarios.signup');
     }
 
     /**
@@ -33,20 +37,49 @@ class UsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
     public function store(Request $request)
     {
-        //
-    }
+        $rules = array(
+            'nombres'         => 'required',
+            'correo'          => 'required|email|unique:users',
+            'contrasena'      => 'required|min:8',
+            'passchecker'     => 'required'
+        );
+        $validator = Validator::make(Input::all(), $rules);
 
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('signup/create')
+                ->withErrors($validator)
+                ->withInput(Input::except('password'));
+        } else {
+            $Usuario = new Usuario();
+            $Usuario->Nombres = Input::get('nombre');
+            $Usuario->ApellidoPaterno = Input::get('apaterno');
+            $Usuario->ApellidoMaterno = Input::get('amaterno');
+            $Usuario->Correo = Input::get('correo');
+            $Usuario->password = Input::get('passchecker');
+            $Usuario->Rol = Input::get('rol');
+            $Usuario->save();
+            
+            Session::flash('message', 'Asociado creado!');
+            return Redirect::to('/');
+        }
+    }
     /**
      * Display the specified resource.
      *
      * @param  \App\Usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function show(Usuario $usuario)
+    public function show(Usuario $id)
     {
-        //
+        $usuario = Usuario::find($id);
+
+        return view::make('usuarios.show')
+            ->with('usuario', $usuario);
     }
 
     /**
@@ -55,9 +88,13 @@ class UsuarioController extends Controller
      * @param  \App\Usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function edit(Usuario $usuario)
+    public function edit($id)
     {
-        //
+        $usuario = Usuario::find($id);
+
+        // show the edit form and pass the nerd
+        return view::make('usuarios.edit')
+            ->with('usuario', $usuario);
     }
 
     /**
@@ -69,7 +106,36 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, Usuario $usuario)
     {
-        //
+        // validate
+        // read more on validation at http://laravel.com/docs/validation
+        $rules = array(
+            'nombres'         => 'required',
+            'correo'          => 'required|email',
+            'contrasena'      => 'required',
+            'passchecker'     => 'required'
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('nerds/' . $id . '/edit')
+                ->withErrors($validator)
+                ->withInput(Input::except('password'));
+        } else {
+            // store
+            $Usuario = Usuario::find($IDUsuario);
+            $Usuario->Nombres = Input::get('nombre');
+            $Usuario->ApellidoPaterno = Input::get('apaterno');
+            $Usuario->ApellidoMaterno = Input::get('amaterno');
+            $Usuario->Correo = Input::get('correo');
+            $Usuario->password = Input::get('passchecker');
+            $Usuario->Rol = Input::get('rol');
+            $Usuario->save();
+
+            // redirect
+            Session::flash('message', 'Asociado creado!');
+            return Redirect::to('usuarios');
+        }
     }
 
     /**
@@ -78,8 +144,14 @@ class UsuarioController extends Controller
      * @param  \App\Usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usuario $usuario)
+    public function destroy($IDUsuario)
     {
-        //
+        //// delete
+        $usuario = Usuario::find($IDUsuario);
+        $usuario->delete();
+
+        // redirect
+        Session::flash('message', 'Eliminado exitosamente');
+        return Redirect::to('usuarios');
     }
 }

@@ -19,9 +19,8 @@ class CreateUsuarios extends Migration
             $table->string('Nombres');
             $table->string('ApellidoPaterno');
             $table->string('ApellidoMaterno');
-            $table->string('Correo');
+            $table->string('Correo')->unique();
             $table->string('Contrasena');
-            $table->string('Rol');
             $table->timestamps();
         });
     }

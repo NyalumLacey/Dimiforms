@@ -17,8 +17,6 @@ class CreateFormularios extends Migration
             $table->create();
             $table->increments('IDFormulario');
             $table->string('Titulo');
-            $table->string('Programa');
-            $table->string('IDcreador');
             $table->timestamp('FechaPublicacion');
             $table->string('IDSeccion');
             $table->timestamps();

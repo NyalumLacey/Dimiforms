@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Registro</title>
     <!--CSS-->
     <link rel="stylesheet" href="{{ URL::asset('css/login-styles.css') }}">  
     <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}" >
@@ -20,19 +20,20 @@
                     <h2 class="display-4">Registrate</h2>
                     <p class="lead">Ingresa tus datos personales para registrarte</p>
                     <hr class="my-4">
-                    <form action="">
+                    <form method="POST" action="{{ url('/usuarios') }}">
+                    {{ csrf_field() }}
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
-                            <input type="email" class="form-control" id="nombre" placeholder="Nombre(s)">
+                            <input type="text" class="form-control" id="nombre" placeholder="Nombre(s)">
                         </div>
                         <div class="row">
                             <div class="col">
                                 <label for="apaterno">Apellido Paterno</label>
-                                <input type="email" class="form-control" id="apaterno" placeholder="Apellido Paterno">
+                                <input type="text" class="form-control" id="apaterno" placeholder="Apellido Paterno">
                             </div>
                             <div class="col">
                                 <label for="amaterno">Apellido Materno</label>
-                                <input type="email" class="form-control" id="amaterno" placeholder="Apellido Materno">
+                                <input type="text" class="form-control" id="amaterno" placeholder="Apellido Materno">
                             </div>
                         </div>
                         <div class="form-group">
@@ -50,7 +51,7 @@
                         </div>
                         <div class="form-group">
                             <label for="pass">Contraseña</label>
-                            <input type="password" class="form-control" id="pass" placeholder="Ingresa tu contraseña">
+                            <input type="password" class="form-control" id="contrasena" placeholder="Ingresa tu contraseña">
                         </div>
                         <div class="form-group">
                             <label for="passchecker">Confirma tu contraseña</label>

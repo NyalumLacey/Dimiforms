@@ -42,7 +42,7 @@
                     </div>
                     <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 font-weight-light mb-5">Dimiforms es una plataforma de creación de formularios exacta para tus necesidades de aplicaciones online en Dimi's Adventure. Dinámica. Flexible. Eficaz </p>
-                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="/signup">Regístrate hoy</a>
+                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{ URL::to('usuarios.create') }}">Regístrate hoy</a>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
         <section class="page-section bg-dark text-white">
             <div class="container text-center">
                 <h2 class="mb-4">¿Tienes una cuenta?</h2>
-                <a class="btn btn-light btn-xl" href="/login">Inicia sesión</a>
+                <a class="btn btn-light btn-xl" href="{{ URL::to('usuarios.login') }}">Inicia sesión</a>
             </div>
         </section>
         <!-- Footer-->

@@ -4,10 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Usuario extends model
+class Usuario extends Model
 {
-    public static $table = 'usuarios';
-
     public function set_password($string){
         $this->set_attribute('Contrasena', Hash::make($string));
     }
