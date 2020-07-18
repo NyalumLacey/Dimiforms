@@ -12,12 +12,15 @@ class UsuariosSeeder extends Seeder
      */
     public function run()
     {
+
+        //$Usuarios = factory(App\models\Usuario::class, 3)->create();
+
         DB::table('usuarios')->insert([
-            'Nombres' => 'Sthefany Guadalupe',
-            'ApellidoPaterno' => 'Reyna',
-            'ApellidoMaterno' => 'Rangel',
-            'Correo' => 'nyalum.lacey@gmail.com',
-            'Contrasena' => bcrypt('134567890'),
+            'Nombres' => 'ADMIN',
+            'ApellidoPaterno' => 'Ad',
+            'ApellidoMaterno' => 'min',
+            'Correo' => 'admin@example.com',
+            'password' => bcrypt('root'),
             'IDRol' => '1'
         ]);
     }

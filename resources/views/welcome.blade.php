@@ -26,8 +26,8 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/signup">Registrarse</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login">Iniciar sesión</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('display_signup')}}">Registrarse</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('display_login')}}">Iniciar sesión</a></li>
                     </ul>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 font-weight-light mb-5">Dimiforms es una plataforma de creación de formularios exacta para tus necesidades de aplicaciones online en Dimi's Adventure. Dinámica. Flexible. Eficaz </p>
-                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{ URL::to('usuarios.create') }}">Regístrate hoy</a>
+                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{ route('display_signup')}}">Regístrate hoy</a>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
         <section class="page-section bg-dark text-white">
             <div class="container text-center">
                 <h2 class="mb-4">¿Tienes una cuenta?</h2>
-                <a class="btn btn-light btn-xl" href="{{ URL::to('usuarios.login') }}">Inicia sesión</a>
+                <a class="btn btn-light btn-xl" href="{{ route('display_login')}}">Inicia sesión</a>
             </div>
         </section>
         <!-- Footer-->

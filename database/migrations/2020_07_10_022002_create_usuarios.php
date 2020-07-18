@@ -20,7 +20,7 @@ class CreateUsuarios extends Migration
             $table->string('ApellidoPaterno');
             $table->string('ApellidoMaterno');
             $table->string('Correo')->unique();
-            $table->string('Contrasena');
+            $table->string('password');
             $table->timestamps();
         });
     }

@@ -20,14 +20,17 @@
                     <h2 class="display-4">Bienvenido de nuevo</h2>
                     <p class="lead">Ingresa tu correo y contraseña para continuar</p>
                     <hr class="my-4">
-                    <form action="">
-                        <div class="form-group">
+                    <form action="{{ route('usuario_login') }}" method="POST">
+                        <input type="hidden" name="_token"content="{{ csrf_token() }}"></input>
+                        <div class="form-group" {{ $errors->has('correo') ? 'has-error' : ''}}>
                             <label for="correo">Correo</label>
-                            <input type="email" class="form-control" id="correo" aria-describedby="emailHelp" placeholder="Ingresa tu correo">
+                            <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp" placeholder="Ingresa tu correo" value="{{ old('correo')}}">
+                            {!! $errors->first('correo', '<span class="help-block">:message</span>') !!}
                         </div>
-                        <div class="form-group">
-                            <label for="pass">Contraseña</label>
-                            <input type="password" class="form-control" id="pass" placeholder="Ingresa tu contraseña">
+                        <div class="form-group" {{ $errors->has('password') ? 'has-error' : ''}}>
+                            <label for="password">Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu contraseña">
+                            {!! $errors->first('password', '<span class="help-block">:message</span>') !!}
                         </div>
                         <button type="submit" class="btn btn-primary">Ingresar</button>
                     </form>

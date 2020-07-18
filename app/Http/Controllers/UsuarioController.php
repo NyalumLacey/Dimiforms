@@ -41,7 +41,7 @@ class UsuarioController extends Controller
 
     public function store(Request $request)
     {
-        $rules = array(
+        /*$rules = array(
             'nombres'         => 'required',
             'correo'          => 'required|email|unique:users',
             'contrasena'      => 'required|min:8',
@@ -54,19 +54,20 @@ class UsuarioController extends Controller
             return Redirect::to('signup/create')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
-        } else {
+        } else {*/
+
             $Usuario = new Usuario();
-            $Usuario->Nombres = Input::get('nombre');
-            $Usuario->ApellidoPaterno = Input::get('apaterno');
-            $Usuario->ApellidoMaterno = Input::get('amaterno');
-            $Usuario->Correo = Input::get('correo');
-            $Usuario->password = Input::get('passchecker');
-            $Usuario->Rol = Input::get('rol');
+            $Usuario->Nombres = $request->input("nombre");
+            $Usuario->ApellidoPaterno = $request->input("apaterno");
+            $Usuario->ApellidoMaterno = $request->input("amaterno");
+            $Usuario->Correo = $request->input("correo");
+            $Usuario->password = $request->input("passchecker");
+            $Usuario->IDRol = $request->input("rol");
             $Usuario->save();
             
-            Session::flash('message', 'Asociado creado!');
-            return Redirect::to('/');
-        }
+            //Session::flash('message', 'Asociado creado!');
+            return redirect()->route('display_landingpage');
+        //}
     }
     /**
      * Display the specified resource.
@@ -108,7 +109,7 @@ class UsuarioController extends Controller
     {
         // validate
         // read more on validation at http://laravel.com/docs/validation
-        $rules = array(
+        /*$rules = array(
             'nombres'         => 'required',
             'correo'          => 'required|email',
             'contrasena'      => 'required',
@@ -121,7 +122,7 @@ class UsuarioController extends Controller
             return Redirect::to('nerds/' . $id . '/edit')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
-        } else {
+        } else {*/
             // store
             $Usuario = Usuario::find($IDUsuario);
             $Usuario->Nombres = Input::get('nombre');
@@ -134,8 +135,8 @@ class UsuarioController extends Controller
 
             // redirect
             Session::flash('message', 'Asociado creado!');
-            return Redirect::to('usuarios');
-        }
+            return Redirect::route('display_landingpage');
+        //}
     }
 
     /**

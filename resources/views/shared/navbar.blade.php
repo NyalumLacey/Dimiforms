@@ -16,11 +16,11 @@
       <li class="nav-item dropdown">
         <a id="nav-dropdown" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          @yield('Nombre', 'Default') | Usuario
+          @yield('User-name', 'Default') | Usuario
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Mi cuenta</a>
-          <a class="dropdown-item" href="#">Salir</a>
+          <a class="dropdown-item" href="">Mi cuenta</a>
+          <a class="dropdown-item" href="{{ route('usuario_logout')}}">Salir</a>
         </div>
       </li>
   </ul>

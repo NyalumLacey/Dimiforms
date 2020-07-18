@@ -20,42 +20,42 @@
                     <h2 class="display-4">Registrate</h2>
                     <p class="lead">Ingresa tus datos personales para registrarte</p>
                     <hr class="my-4">
-                    <form method="POST" action="{{ url('/usuarios') }}">
-                    {{ csrf_field() }}
+                    <form action="{{ route('usuario_registro') }}" method="POST">
+                        <input type="hidden" name="_token"content="{{ csrf_token() }}"></input>
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" placeholder="Nombre(s)">
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre(s)">
                         </div>
                         <div class="row">
                             <div class="col">
                                 <label for="apaterno">Apellido Paterno</label>
-                                <input type="text" class="form-control" id="apaterno" placeholder="Apellido Paterno">
+                                <input type="text" class="form-control" id="apaterno" name="apaterno" placeholder="Apellido Paterno">
                             </div>
                             <div class="col">
                                 <label for="amaterno">Apellido Materno</label>
-                                <input type="text" class="form-control" id="amaterno" placeholder="Apellido Materno">
+                                <input type="text" class="form-control" id="amaterno" name="amaterno" placeholder="Apellido Materno">
                             </div>
                         </div>
                         <div class="form-group">
                             </div>
                         <div class="form-group">
                             <label for="rol">Rol</label>
-                            <select class="form-control" id="rol" placeholder="¿Cuál es tu puesto?">
-                                <option>Asociado</option>
-                                <option>Administrador</option>
+                            <select class="form-control" id="rol" name="rol" placeholder="¿Cuál es tu puesto?">
+                                <option value="2">Asociado</option>
+                                <option value="1">Administrador</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="correo">Correo</label>
-                            <input type="email" class="form-control" id="correo" aria-describedby="emailHelp" placeholder="Ingresa tu correo">
+                            <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp" placeholder="Ingresa tu correo">
                         </div>
                         <div class="form-group">
-                            <label for="pass">Contraseña</label>
-                            <input type="password" class="form-control" id="contrasena" placeholder="Ingresa tu contraseña">
+                            <label for="password">Contraseña</label>
+                            <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña">
                         </div>
                         <div class="form-group">
                             <label for="passchecker">Confirma tu contraseña</label>
-                            <input type="password" class="form-control" id="passchecker" placeholder="Ingresa de nuevo tu contraseña">
+                            <input type="password" class="form-control" id="passchecker" name="passchecker" placeholder="Ingresa de nuevo tu contraseña">
                         </div>
                         <button type="submit" class="btn btn-primary">Registrarse</button>
                     </form>

@@ -1,9 +1,12 @@
+{{$login = cookie('login')}}
 @extends('shared.layout')
 @section('title', 'Dashboard')
-@section('dashboard-button', 'active')
+@section('User-name', $login ?? 'Invitado' )
+
 
 @section('content')
 <main>
+<h3 class="col-md-py4">hola, {{$login}}</h3>
    <div class="container-fluid pt-5 ml-auto">
       <div class="row">
          <div class="col-lg 4">

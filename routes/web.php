@@ -1,19 +1,34 @@
 <?php
 
-use app\models\Usuario;
+use App\models\Usuario;
 
 //use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome');
+Route::view('/', 'welcome')->name('display_landingpage');
 
-Route::view('/login', 'login');
+Route::view('/login', 'login')->name('display_login')->middleware('guest');
 
-Route::view('/signup', 'signup');
+Route::match(array('GET', 'POST'), '/logout', 'LoginController@logout')->name('usuario_logout');
 
-Route::get('/dashboard', 'ViewController@DisplayDashboard');
+Route::view('/signup', 'signup')->name('display_signup');
 
-Route::get('/formularios', 'ViewController@displayFormularios');
+Route::view('/dashboard', 'dashboard')->name('display_dashboard');
 
-Route::get('/estadisticas', 'ViewController@displayEstadisticas');
+Route::get('/formularios', 'ViewController@displayFormularios')->name('display_formularios');
 
-Route::get('/about', 'ViewController@displayAbout');
+Route::get('/estadisticas', 'ViewController@displayEstadisticas')->name('display_estadisticas');
+
+Route::get('/about', 'ViewController@displayAbout')->name('display_about');
+
+Route::group(['prefix' => 'usuarios'], function(){
+    Route::match(array('GET', 'POST'), '/registro', 'UsuarioController@store')->name('usuario_registro');
+    Route::match(array('GET', 'POST'), '/editar/{id}', 'UsuarioController@edit')->name('usuario_editar');
+    Route::post('/eliminar', 'Usuariocontroller@destroy')->name('usuario_eliminar');
+});
+
+Route::post('signin', 'LoginController@login')->name('usuario_login');
+
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});

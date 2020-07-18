@@ -23,9 +23,6 @@ class DatabaseSeeder extends Seeder
             'programas'
         ]);
 
-        Model::unguard();
-        factory('app\models\usuario', 10)->create();
-        Model::reguard();
     }
 
     protected function truncateTables(array $tables) {

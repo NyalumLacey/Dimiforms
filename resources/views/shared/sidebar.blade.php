@@ -2,7 +2,7 @@
    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
    <div class="text-center">
          <img src="https://www.w3schools.com/w3images/avatar6.png" class="avatar mx-auto">
-         <h6>@yield('Nombre')</h6>
+         <h6>@yield('User-name')</h6>
    </div>
    <hr>
    <div class="items-container">
