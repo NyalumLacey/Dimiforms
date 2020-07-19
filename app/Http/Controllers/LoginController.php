@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Cookie;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\DB;
 
 
 class LoginController extends Controller
@@ -17,7 +18,8 @@ class LoginController extends Controller
         ]);
     
     if(Auth::attempt($credentials)){
-        Cookie::queue('login', request(['correo']), 60);
+        //$nombre = DB::table('usuarios')->select('Nombres')->where('correo', '=', request(['correo']))->get();
+        Cookie::queue('login', Auth::user(), 60);
         return redirect()->route('display_dashboard');
     }
     return back()

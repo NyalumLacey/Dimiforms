@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 
 class ViewController extends Controller
 {
-    public function DisplayDashboard($request){
-        return view('dashboard')
-            ->withCookie(cookie('login@dashboard', $request->cookie('login'), 60));
+    public function DisplayDashboard(){
+        if (Auth::check()) {
+            return view('dashboard');
+        }         
     }
 
     public function displayFormularios(){
@@ -23,5 +24,16 @@ class ViewController extends Controller
         return view('about');
     }
 
-    
+    public function displaymodaleditar(){
+        if (Auth::check()) {
+            return view('shared.modal-editar');
+        }
+    }
+
+    public function displaymodalcrear(){
+        if (Auth::check()) {
+            return view('shared.modal-crear');
+        }
+    }
+
 }

@@ -2,8 +2,8 @@
 <nav id="navbar" class="navbar fixed-top navbar-toggleable-md navbar-expand-lg shadow p-2 mb-1 ">
   <!-- SideNav slide-out button -->
   <div class="float-left pl-2">
-    <a class="button-collapse"><button type="button" id="sidebarCollapse" onclick="openNav()" class="btn">
-    <i class="fa fa-bars" aria-hidden="true"></i></button></a>
+    <a class="btn button-collapse" type="button" role='butto' id="sidebarCollapse" onclick="openNav()">
+    <i class="fa fa-bars" aria-hidden="true"></i></a>
   </div> 
 </hr>
   <!-- Breadcrumb-->
@@ -15,7 +15,7 @@
     <ul class="nav navbar-nav nav-flex-icons ml-auto">
       <li class="nav-item dropdown">
         <a id="nav-dropdown" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+          aria-haspopup="true" aria-expanded="false" data-target="">
           @yield('User-name', 'Default') | Usuario
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
