@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 
 class ViewController extends Controller
 {
-    public function DisplayDashboard(){
+    public function displayDashboard(){
         if (Auth::check()) {
-            return view('dashboard');
+            echo Auth::user();
+            //return view('dashboard');
         }         
     }
 
