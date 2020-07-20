@@ -1,42 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuarios</title>
-</head>
-<body>
-    <nav class="navbar navbar-inverse">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="{{ URL::to('usuarios') }}">Nerd Alert</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li><a href="{{ URL::to('UsuarioController') }}">View All Nerds</a></li>
-            <li><a href="{{ URL::to('UsuarioController/create') }}">Create a Nerd</a>
-        </ul>
-    </nav>
-
+@section('content')
     <!-- will be used to show any messages -->
     @if (Session::has('message'))
         <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
 
-    <h1>Todos los usuarios</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombres</th>
-                <th scope="col">Apellido Paterno</th>
-                <th scope="col">Apellido Materno</th>
-                <th scope="col">Correo</th>
-                <th scope="col">Rol</th>
-                <th scope="col">Creado</th>
-            </tr>
-        </thead>
+    <h1>Usuario</h1>
+    <div class="jumbotron-fluid"></div>
+    
         <tbody>
-            @foreach ($usuario as $key => $value) {?> 
+            @foreach ($usuarios as $key => $value) {?> 
                 <th scope="row">{{ $value->IDUsuario }}</th>
                 <td>{{ $value->Nombres }}</td>
                 <td>{{ $value->ApellidoPaterno }}</td>

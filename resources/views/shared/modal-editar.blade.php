@@ -1,5 +1,5 @@
-<!-- Modal -->
-<div class="modal fade" id="modal-editar" tabindex="-1" role="dialog" aria-labelledby="modal-crear" aria-hidden="true">
+<!-- Modal editar -->
+<div class="modal fade" id="modal-editar" tabindex="-1" role="dialog" aria-labelledby="modal-editar" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -10,17 +10,17 @@
       </div>
       <div class="modal-body">
         <form action="" method="POST">
-          <input type="hidden" name="_token"content="{{ csrf_token() }}">
+          <input type="hidden" name="_token" content="{{ csrf_token() }}">
             <div class="form-group" {{ $errors->has('programa') ? 'has-error' : ''}}>
+            {!! $errors->first('programa', '<span class="help-block">:message</span>') !!}
               <label for="programa">Selecciona Formulario</label>
                 <select class="form-control" id="programa" name="programa" placeholder="Elige un programa">
-                @foreach(App\models\Formulario::get() as $formulario)
-                    <option value='{{ $city->id }}'>{{ $formulario->Titulo }}</option>
-                @endforeach
+                  <option value="1">No hay nada, poner aqui</option>
+                  <option value="2">ya ves, no hay nada</option>
                 </select>
             </div>
-            <button type="submit" class="btn-block submit-button">Editar Formulario</button>
-          </form>
+          <button type="submit" class="btn-block submit-button">Editar Formulario</button>
+        </form>
     </div>
   </div>
 </div>

@@ -6,7 +6,7 @@
    </div>
    <hr>
    <div class="items-container">
-      <a href="cuenta" >
+      <a href="{{ route('display_usuario')}}" >
          <h6 class="menu-item"><i class="fa fa-user-circle" aria-hidden="true"></i>   |     Cuenta</h6>
       </a>
       <a href="formularios">
@@ -15,14 +15,12 @@
       <a href="estadisticas">
          <h6 class="menu-item"><i class="fa fa-bar-chart" aria-hidden="true"></i>   |     Estadisticas</h6>
       </a>
-      <a class="dropdown-toggle dropdown items-container" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target="#sidebar-dropdown">
-            <h6 class="menu-item"><i class="fas fa-laptop-code"></i>   |     Dimiforms</h6>
-         
+      <a class="dropdown-toggle dropdown items-container" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target="sidebar-dropdown">
+         <h6 class="menu-item"><i class="fas fa-laptop-code"></i>   |     Dimiforms</h6>
          <div class="dropdown-menu" id="sidebar-dropdown" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="{{ route('display_crear_formulario')}}" data-toggle="modal" data-target="#modal-crear">Crear Formulario</a>
             <div class="dropdown-divider"></div>
                <a class="dropdown-item" href="{{ route('display_editar_formulario')}}" data-toggle="modal" data-target="#modal-editar">Editar Formulario</a>
-            </div>
          </div>
       </a>
       <hr>

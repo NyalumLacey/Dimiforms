@@ -1,4 +1,4 @@
-<!-- Modal -->
+<!-- Modal crear -->
 <div class="modal fade" id="modal-crear" tabindex="-1" role="dialog" aria-labelledby="modal-crear" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -9,7 +9,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="" method="POST">
+        <form action="{{ route('display_main')}}" method="POST">
           <input type="hidden" name="_token"content="{{ csrf_token() }}">
           <div class="form-group" {{ $errors->has('titulo') ? 'has-error' : ''}}>
             <label for="titulo">Título del formulario</label>

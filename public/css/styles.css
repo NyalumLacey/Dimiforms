@@ -1,3 +1,8 @@
+/*general stuff*/
+a {
+  text-decoration: none !important;
+}
+
 /*sidebar*/
 #sidebar {
   height: 100%;
@@ -35,6 +40,10 @@
   margin-left: 50px;
 }
 
+.closebtn:hover {
+  color: #c36618 !important;
+}
+
 .items-container{
   text-decoration: none;
   color: white;
@@ -57,7 +66,6 @@
   height: 50px;
   border-radius: 50px 50px 50px 50px;
 }
-/*sidebar*/
 
 #dismiss {
   width: 35px;
@@ -68,11 +76,14 @@
   right: 10px;
 }
 
+/*sidebar*/
+
 /*navbar*/
 #navbar {
   background-color: #c36618;
   border: none !important;
   height: 60px;
+  z-index: 1;
 }
 
 #sidebarCollapse{
@@ -117,6 +128,7 @@ main{
 .dropdown{
   width: inherit;
   background-color: inherit !important;
+  border: 0px;
 }
 
 /*  Modals  */

@@ -1,14 +1,18 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@yield('title')</title>
+    
     <!--Bootstrap, Jquery, Pooper, FontAwesome-->
-    <link rel="stylesheet" href="{{ URL::asset('css/styles.css') }}">  
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}" >
+    <link rel="stylesheet" href="{{ asset('plugins/tether/tether.css') }}"/>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/942404b945.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ URL::asset('css/dimiforms-styles.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('css/styles.css') }}">  
     <!--/Bootstrap, Jquery, Pooper, FontAwesome--> 
 
     <style>
@@ -16,6 +20,13 @@
             content: none;
         }
     </style>
+    <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'UA-92610751-3');
+    </script>
 </head>
 
 <body class="hidden-sn grey-skin">
@@ -26,7 +37,7 @@
 </header>   
 <!--/.Double navigation-->
 <!--Content-->
-<main id="main" class="col-lg-12 pt-1">
+<main id="main" class="container-fluid">
     @yield('content')
 </main>
 <!--/.Content-->
@@ -42,6 +53,7 @@
         document.getElementById("sidebar").style.width = "0";
         document.getElementById("main").style.marginLeft = "0";
     }
+
     $(document).ready(function(){       
         var scroll_start = 0;
         var startchange = $('#startchange');
@@ -57,44 +69,31 @@
             });
         }
     });
-</script>
 
-<script type="text/javascript">
-    //* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-    
-    $(document).ready(function() {
-// SideNav Button Initialization
-$(".button-collapse").sideNav2();
-// SideNav Scrollbar Initialization
-var sideNavScrollbar = document.querySelector('.custom-scrollbar');
-var ps = new PerfectScrollbar(sideNavScrollbar);
-});
-    
-    var dropdown = document.getElementsByClassName("dropdown-btn");
-    var i;
-
-    for (i = 0; i < dropdown.length; i++) {
-    dropdown[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var dropdownContent = this.nextElementSibling;
-        if (dropdownContent.style.display === "block") {
-        dropdownContent.style.display = "none";
-        } else {
-        dropdownContent.style.display = "block";
-        }
-    });
+    window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+     for (var index in modals) {
+      if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+     }
     }
+}
+
+    
+
 </script>
 <!--/.Scripts-->
 
-
+<!--Modales-->
 @include('shared.modal-crear')
 @include('shared.modal-editar')
+<!--/.Modales-->
 
 <!--Plugins-->
 <script src="{{ asset('plugins/jquery/js/jquery.js') }}"></script>        
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.js') }}"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('plugins/tether/tether.js') }}"></script>
+<script src="{{ asset('js/dimiforms.js') }}"></script>
 <!--/.Plugins-->
 
 </body>

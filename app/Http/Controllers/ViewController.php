@@ -36,4 +36,7 @@ class ViewController extends Controller
         }
     }
 
+    public function displayDimiforms(){
+        return view('dimiforms.main');
+    }
 }
