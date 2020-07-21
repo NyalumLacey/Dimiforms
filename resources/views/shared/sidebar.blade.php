@@ -1,7 +1,7 @@
 <div class="sidebar float-left" id="sidebar">
    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
    <div class="text-center">
-         <img src="https://www.w3schools.com/w3images/avatar6.png" class="avatar mx-auto">
+         <img src="https://www.w3schools.com/w3images/avatar6.png" class="avatar mx-auto" SameSite="None">
          <h6>@yield('User-name')</h6>
    </div>
    <hr>

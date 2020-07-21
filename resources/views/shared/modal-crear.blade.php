@@ -9,7 +9,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="{{ route('display_main')}}" method="POST">
+        <form action="{{ route('Formulario_crear')}}" method="POST">
           <input type="hidden" name="_token"content="{{ csrf_token() }}">
           <div class="form-group" {{ $errors->has('titulo') ? 'has-error' : ''}}>
             <label for="titulo">Título del formulario</label>
@@ -21,7 +21,7 @@
                 <select class="form-control" id="programa" name="programa" placeholder="Elige un programa">
                   <option value="1">Australia - Estudia y Trabaja</option>
                   <option value="2">Canadá - Viaja y Estudia</option>
-                  <option value="3">Canadá - Viaja y Estudia</option>
+                  <option value="3">Canadá - Viaja y Trabaja</option>
                   <option value="4">Cork - Estudia y Trabaja</option>
                   <option value="5">Dublin - Estudia y Trabaja</option>
                   <option value="6">España - Estadías Profesionales</option>

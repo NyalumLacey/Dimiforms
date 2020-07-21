@@ -34,7 +34,8 @@ Route::group(['prefix' => 'usuarios'], function(){
 
 //rutas de formularios
 Route::group(['prefix' => 'formularios'], function(){
-    Route::match(array('GET', 'POST'), '/publicar', 'FormularioController@store')->name('Formulario_registro');
+    Route::match(array('GET', 'POST'), '/crear', 'FormularioController@store')->name('Formulario_crear');
+    Route::match(array('GET', 'POST'), '/publicar', 'FormularioController@update')->name('Formulario_registro');
     Route::match(array('GET', 'POST'), '/editar/{id}', 'FormularioController@edit')->name('Formulario_editar');
     Route::post('/eliminar', 'FormularioController@destroy')->name('Formulario_eliminar');
 });

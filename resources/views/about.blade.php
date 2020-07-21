@@ -10,4 +10,6 @@
         <div class="quote">Form-builder. Version  1.0.0</div>
     </div>
 </div>
+
+<example-component></example-component>
 @endsection

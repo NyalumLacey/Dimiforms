@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Formulario;
+use App\models\Formulario;
 use Illuminate\Http\Request;
 
 class FormularioController extends Controller
@@ -35,7 +35,16 @@ class FormularioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Formulario = new Formulario();
+        $Formulario->Titulo = $request->input("titulo");
+        $Formulario->IDPrograma = $request->input("programa");
+        $Formulario->save();
+
+        error_log('Valores guardados:' + $formulario);
+            
+        //Session::flash('message', 'Asociado creado!');
+        return redirect()->route('display_main', $Formulario = array('titulo' => $request->input("titulo"), 'IDPrograma', $request->input("programa")));
+        
     }
 
     /**

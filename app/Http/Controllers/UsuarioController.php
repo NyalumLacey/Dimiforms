@@ -41,21 +41,6 @@ class UsuarioController extends Controller
 
     public function store(Request $request)
     {
-        /*$rules = array(
-            'nombres'         => 'required',
-            'correo'          => 'required|email|unique:users',
-            'contrasena'      => 'required|min:8',
-            'passchecker'     => 'required'
-        );
-        $validator = Validator::make(Input::all(), $rules);
-
-        // process the login
-        if ($validator->fails()) {
-            return Redirect::to('signup/create')
-                ->withErrors($validator)
-                ->withInput(Input::except('password'));
-        } else {*/
-
             $Usuario = new Usuario();
             $Usuario->Nombres = $request->input("nombre");
             $Usuario->ApellidoPaterno = $request->input("apaterno");
